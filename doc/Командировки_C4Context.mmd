@@ -1,20 +1,6 @@
-C4Context
-title Контекст: Командировки ↔ 1С
-Person(emp, "Сотрудник", "Инициирует командировки, прикрепляет чеки")
-Person(acct, "Бухгалтер/Кадровик", "Проводит документы и выплаты")
-
-System(booking, "Система бронирования", "SaaS", "Заявки, билеты, отели, расходы")
-System(integration, "Интеграционный контур", "API GW + ESB/Broker", "Оркестрация, трансформация, маршрутизация")
-System(onec_zup, "1С:ЗУП", "1C", "Командировки, суточные, начисления/удержания")
-System(onec_buh, "1С:Бухгалтерия", "1C", "Авансы, учет расходов, проводки")
-System_Ext(sso, "SSO/AD", "Каталог/SSO", "Аутентификация")
-System_Ext(mail, "Уведомления", "SMTP/Teams", "Оповещения")
-
-Rel(emp, booking, "Создаёт/согласует заявки, загружает чеки", "Web/Mobile")
-Rel(acct, onec_buh, "Учет авансов и расходов", "")
-Rel(acct, onec_zup, "Расчет суточных и удержаний", "")
-Rel(booking, integration, "REST/Webhooks события и запросы", "HTTPS")
-Rel(integration, onec_zup, "Документы и справочники", "HTTP/REST, OData/WS")
-Rel(integration, onec_buh, "Документы и проводки", "HTTP/REST, OData/WS")
-Rel(booking, sso, "SSO/OIDC", "HTTPS")
-Rel(integration, mail, "Оповещения о статусах", "SMTP/Webhook")
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
